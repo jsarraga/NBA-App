@@ -1,8 +1,15 @@
 import React from 'react'
 import './Players.css';
+import PlayerList from '../PlayerList/PlayerList';
 
 const players = () => {
-    return <p>Players</p>
+    return(
+        <div>
+            <p>Players</p>
+            <PlayerList />  
+        </div>
+    
+    )
 }
 
 export default players;

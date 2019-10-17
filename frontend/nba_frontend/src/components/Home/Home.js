@@ -1,8 +1,16 @@
 import React from 'react';
+import News from '../News/News';
+import Watchlist from '../Watchlist/Watchlist';
 import './Home.css'
 
-const home = () => {
-    return <p>Homepage</p>
+function Home() {
+    return (
+        <div>
+            <p>Homepage</p>
+            <News />
+            <Watchlist />
+        </div>
+    )
 }
 
-export default home;
+export default Home;

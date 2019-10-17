@@ -1,8 +1,14 @@
 import React from 'react'
+import Watchlist from '../Watchlist/Watchlist';
 import './Team.css';
 
-const team = () => {
-    return <p>Team</p>
+function Team() {
+    return (
+        <div>
+            <p>Team</p>
+            <Watchlist />
+        </div>
+    )
 }
 
-export default team;
+export default Team;
