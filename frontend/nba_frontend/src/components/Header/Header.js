@@ -2,10 +2,10 @@ import React from 'react';
 import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
 import Home from '../Home/Home';
-import Players from '../Players/players';
-import Team from '../Team/team';
+import Players from '../Players/Players';
+import Team from '../Team/Team';
 import Draft from '../Draft/Draft';
-import Comparison from '../Comparison/comparison';
+import Comparison from '../Comparison/Comparison';
 import Logo from './img/MJ.jpg';
 import './Header.css';
 
@@ -21,21 +21,14 @@ function Header() {
                 <Link type="nav" className="link" to="/Team">My Team</Link>
                 <Link type="nav" className="link" to="/Draft">Draft Team</Link>
                 <Link type="nav" className="link" to="/Comparison">Compare Players</Link>
+                <input type="text" placeholder="Search Players" />
+                <button>Search</button>
             </topnav>
-                <Route path='/Root' component={Home} />
+                <Route path='/Home' component={Home} />
                 <Route path='/Players' component={Players} />
                 <Route path='/Team' component={Team} />
                 <Route path='/Draft' component={Draft} />
                 <Route path='/Comparison' component={Comparison} />
-
-
-
-            
-
-
-
-
-
         </div>
     );
 }
