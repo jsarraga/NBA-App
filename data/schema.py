@@ -27,7 +27,21 @@ def schema(dbpath=DBPATH):
         SQL = """ CREATE TABLE players(
             pk INTEGER PRIMARY KEY AUTOINCREMENT,
             name VARCHAR,
-            pos VARCHAR(2),
+            age VARCHAR,
+            pos VARCHAR(5),
+            user_pk INTEGER,
+            FOREIGN KEY(user_pk) REFERENCES accounts(pk)
+            ); """
+
+        cur.execute(SQL)
+
+        cur.execute(DROPSQL.format(tablename="player_seasons"))
+
+        SQL = """ CREATE TABLE player_seasons(
+            pk INTEGER PRIMARY KEY AUTOINCREMENT,
+            sea VARCHAR,
+            name VARCHAR,
+            tm VARCHAR, 
             pts FLOAT,
             tpm FLOAT,
             reb FLOAT,
@@ -38,9 +52,22 @@ def schema(dbpath=DBPATH):
             ftp DECIMAL(18,4),
             tov FLOAT,
             g VARCHAR,
+            gs VARCHAR,
             mp VARCHAR,
+            player_pk INTEGER,
+            FOREIGN KEY(player_pk) REFERENCES players(pk)
+        ); """
+
+        cur.execute(SQL)
+
+        cur.execute(DROPSQL.format(tablename="watchlist"))
+
+        SQL = """ CREATE TABLE watchlist(
+            pk INTEGER PRIMARY KEY AUTOINCREMENT,
             user_pk INTEGER,
+            player_pk INTEGER,
             FOREIGN KEY(user_pk) REFERENCES accounts(pk)
+            FOREIGN KEY(player_pk) REFERENCES players(pk)
             ); """
 
         cur.execute(SQL)
