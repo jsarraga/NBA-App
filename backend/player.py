@@ -27,26 +27,8 @@ class Player():
             cur.execute(SQL, (season, player_pk))
             stats = cur.fetchone()
             return stats
+
     
-
-
-    # should getting players by pos be in Player class?
-    def get_players_by_position(self, position):
-        with sqlite3.connect(DATABASE) as conn:
-            cur = conn.cursor()
-            SQL = "SELECT * FROM players WHERE pos=?"
-            cur.execute(SQL, (position,))
-            players = cur.fetchall()
-            return players
-   
-    def get_all_players(self):
-       with sqlite3.connect(DATABASE) as conn:
-            cur = conn.cursor()
-            SQL = "SELECT * FROM players"
-            cur.execute(SQL, (self,))
-            players = cur.fetchall()
-            return players
-
 
 
 

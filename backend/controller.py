@@ -21,5 +21,6 @@ def get_players():
         data = {"name": "NOT FOUND", "age": None, "pos": None}
     return jsonify(player_list)
 
+
 if __name__ == "__main__":
     app.run(debug=True)

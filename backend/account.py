@@ -7,8 +7,9 @@ class Account(ORM):
 
     def __init__(self, **kwargs):
         self.username = kwargs.get('username')
-        self.password = kwargs.get('password')
+        self.password_hash = kwargs.get('password_hash')
         self.pk = kwargs.get('pk')
+        self.api_key = kwargs.get('api_key')
 
     @classmethod
     def api_authenticate(cls, api_key):

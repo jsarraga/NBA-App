@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios';
 import './PlayerList.css';
 
-const PlayerList = () => {
+const PlayerList = (props) => {
+    
 
     return ( 
         <div>
-            <p>Playerlist in left column</p>
-        </div>
+            <p> Name:{props.name}</p>
+            <p> Age:{props.age} </p>
+            <p> Position:{props.pos}</p>
+        </div> 
     )
 }
 
