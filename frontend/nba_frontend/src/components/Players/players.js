@@ -9,7 +9,7 @@ const Players = () => {
     const [isLoading, setIsLoading] = useState(true);
     
     const getPlayers = () => {
-        const sendPLayers = async () => {
+        const sendPlayers = async () => {
             setIsLoading(true);
             try{
                 const res = await axios('http://localhost:5000/players')
@@ -22,7 +22,7 @@ const Players = () => {
                 console.error(error)
             }
         }
-        sendPLayers();
+        sendPlayers();
     }
 
     const showPlayers = (
@@ -31,6 +31,19 @@ const Players = () => {
             name = {data.name}
             age = {data.age}
             pos = {data.pos}
+            tm = {data.tm}
+            pts = {data.pts}
+            tpm = {data.tpm}
+            reb = {data.reb}
+            ast = {data.ast}
+            stl = {data.stl}
+            blk = {data.blk}
+            fgp = {data.fgp}
+            ftp = {data.ftp}
+            tov = {data.tov}
+            g = {data.g}
+            gs = {data.gs}
+            mp = {data.mp}
             key =  {index} />
         })}
         </div>
@@ -38,7 +51,7 @@ const Players = () => {
 
 
     return(
-        <div>
+        <div className="leftcolumn">
             <p>Players</p>
             <button class="button" onClick={e => {getPlayers()}}>See all Players</button>
             {showPlayers}  

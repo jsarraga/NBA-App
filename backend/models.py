@@ -7,7 +7,7 @@ where_clause = "SELECT * FROM {}"
 def get_all_players():
     with sqlite3.connect(DATABASE) as conn:
         cur = conn.cursor()
-        SQL = "SELECT * FROM players"
+        SQL = "SELECT * FROM players JOIN player_seasons ON players.pk = player_seasons.pk ORDER BY pts DESC"
         cur.execute(SQL)
         players = cur.fetchall()
         return players
@@ -28,7 +28,7 @@ def get_by_current_team(team):
         players = cur.fetchall()
         return players
 
-# Hardcoded for '18-19 season only. Not season dynamic
+# Hardcoded for '18-19 season only. Not season dynamic.
 def get_by_stat(stat):
     with sqlite3.connect(DATABASE) as conn:
         cur = conn.cursor()
@@ -38,3 +38,4 @@ def get_by_stat(stat):
         players = cur.fetchall()
         return players
 
+print(get_all_players())
