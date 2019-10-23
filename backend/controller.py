@@ -1,10 +1,29 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
-import player
-import models
+import account, player, models, orm
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/api/create", methods=['POST'])
+def create_account():
+    api_key = util.random_api_key()
+    data = request.get_json()
+    account = Account()
+    account.balance = 0
+    account.username = data['username']
+    password = data['password']
+    hashed_pass = util.hash_password(password)
+    account.password = hashed_pass
+    account.api_key = api_key
+    account.save()
+    return jsonify({"api_key": account.api_key})
+
+@app.route('/api/get_api_key', methods=['POST'])
+def get_api_key():
+    data = request.get_json()
+    account = Account.login(username=data['username'], password=data['password'])
+    return jsonify({"api_key": account.api_key})
 
 @app.route("/players", methods = ["GET"])
 def get_players():
@@ -35,6 +54,15 @@ def get_players():
         data = {"name": "PLAYER NOT FOUND" }
     return jsonify(player_list)
 
+@app.route("/myteam", methods =["GET"])
+def get_my_team(api_key):
+    account = Account.api_authenticate(api_key)
+    team = account.get_my_team()
+    data = {}
+    for player in team:
+        data["name"] = player[1]
+        data["pos"] = player[4]
+    return jsonify(data)
 
 
 

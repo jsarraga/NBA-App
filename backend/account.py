@@ -1,5 +1,10 @@
+import sqlite3
+from player import Player
+from backend.orm import ORM
+from backend.util import hash_password
 
-
+DATABASE = "../data/nba.db"
+where_clause = "SELECT * FROM {}"
 
 class Account(ORM):
     tablename = "accounts"
@@ -21,7 +26,7 @@ class Account(ORM):
 
     @classmethod
     def login(cls, username, password):
-        return Account.one_from_where_clause("WHERE username=? AND password_hash=?", 
+        return Account.where_clause(cls.tablename+"WHERE username=? AND password_hash=?", 
                                                 (username, hash_password(password)))
     
     def generate_api_key(self):
@@ -35,7 +40,26 @@ class Account(ORM):
     def get_api_key(self):
         return self.api_key
 
+    def draft_player(self, name):
+        with sqlite3.connect(DATABASE) as conn:
+            cur = conn.cursor()
+            SQL = "UPDATE players SET user_pk=? WHERE name=?"
+            cur.execute(SQL, (self.pk, name))
+            
+
     def get_team(self):
-        # return Players.all_from_where_clause("WHERE user_pk=?", (self.pk,))
-        pass
+        with sqlite3.connect(DATABASE) as conn:
+            cur = conn.cursor()
+            SQL1 = where_clause.format("players WHERE user_pk=?")
+            cur.execute(SQL1, (self.pk,))
+            team = cur.fetchall()
+        return team
+
+    
+if __name__ == "__main__":
+    justin = Account(pk=1, username="test_jus", password_hash="pwd")
+    steph = Player(pk=124, name="Stephen Curry", age=30, pos="PG")
+    justin.draft_player("Stephen Curry")
+    print(justin.get_team())
+
     

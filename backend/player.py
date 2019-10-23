@@ -2,7 +2,7 @@ import sqlite3
 
 DATABASE = "../data/nba.db"
 
-class Player():
+class Player:
     tablename = "players"
     fields = ['name', 'age', 'pos']
 
@@ -11,6 +11,7 @@ class Player():
         self.name = kwargs.get("name")
         self.age = kwargs.get("age")
         self.pos = kwargs.get("pos")
+        self.user_pk = kwargs.get("user_pk")
 
     def get_all_seasons_stats(self):
         with sqlite3.connect(DATABASE) as conn:
