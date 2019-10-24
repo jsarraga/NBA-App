@@ -1,4 +1,4 @@
-from hashlib import sha256, sha 512
+from hashlib import sha256, sha512
 import random
 
 
