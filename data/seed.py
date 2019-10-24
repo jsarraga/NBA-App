@@ -8,8 +8,8 @@ with sqlite3.connect("nba.db") as connection:
         VALUES (?,?); """
 
     values = [
-        ["justin", "pwd"],
-        ["abdoul", "pwd"]
+        ["justin", "pwd", "11111"],
+        ["abdoul", "pwd", "22222"]
     ]
 
     for value in values:

@@ -12,7 +12,7 @@ const Players = () => {
         const sendPlayers = async () => {
             setIsLoading(true);
             try{
-                const res = await axios('http://localhost:5000/players')
+                const res = await axios('http://localhost:5000/all_players')
                 if (res.data) {
                     console.log(res.data)
                     setPlayerData(res.data)

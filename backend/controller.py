@@ -27,7 +27,7 @@ def get_api_key():
     account = Account.login(username=data['username'], password=data['password'])
     return jsonify({"api_key": account.api_key})
 
-@app.route("/players", methods = ["GET"])
+@app.route("/all_players", methods = ["GET"])
 def get_players():
     players = models.get_all_players()
     player_list = []
@@ -56,7 +56,7 @@ def get_players():
         data = {"name": "PLAYER NOT FOUND" }
     return jsonify(player_list)
 
-@app.route("/myteam", methods =["GET"])
+@app.route("/<api_key>/myteam", methods =["GET"])
 def get_my_team(api_key):
     account = Account.api_authenticate(api_key)
     team = account.get_my_team()
@@ -66,6 +66,45 @@ def get_my_team(api_key):
         data["pos"] = player[4]
     return jsonify(data)
 
+# might want to add team to the below. But have to get it from player_seasons
+@app.route("/<firstname>/<lastname>/info", methods =["GET"])
+def get_player_info(firstname, lastname):
+    name = firstname + " " + lastname
+    player = Player.get_player(name)
+    if player:
+        data = {}
+        data["name"] = player.name
+        data["age"] = player.age
+        data["pos"] = player.pos  
+    else:
+        data = {"name": "PLAYER NOT FOUND" }
+    return jsonify(data)
+
+@app.route("/<firstname>/<lastname>/recent_stats", methods=['GET'])
+def get_player_recent_stats(firstname, lastname):
+    name = firstname + " " + lastname
+    player = Player.get_player(name)
+    stats = player.get_recent_stats()
+    player_list = []
+    if stats:
+        for stat in stats:
+            data = {}
+            data["pts"] = stats[4]
+            data["tpm"] = stats[5]
+            data["reb"] = stats[6]
+            data["ast"] = stats[7]
+            data["stl"] = stats[8]
+            data["blk"] = stats[9]
+            data["fgp"] = stats[10]
+            data["ftp"] = stats[11]
+            data["tov"] = stats[12]
+            data["g"] = stats[13]
+            data["gs"] = stats[14]
+            data["mp"] = stats[15]
+            player_list.append(data)
+    else:
+        data = {"name": "PLAYER NOT FOUND" }
+    return jsonify(data)
 
 
 if __name__ == "__main__":
