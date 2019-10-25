@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from account import Account 
 from player import Player
-import models, util
+import models, util, parse
 
 app = Flask(__name__)
 CORS(app)
@@ -106,6 +106,14 @@ def get_player_recent_stats(firstname, lastname):
     else:
         data = {"name": "PLAYER NOT FOUND" }
     return jsonify(player_list)
+
+@app.route("/newsfeed", methods=["GET"])
+def newsfeed():
+    news = parse.get_news()
+    if news:
+        return jsonify(news)
+    else:
+        data = {"news": "no news for today."}
 
 
 if __name__ == "__main__":
