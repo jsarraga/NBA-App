@@ -32,7 +32,7 @@ const News = () => {
             return <Rss
                 title = {data.title}
                 published = {data.published}
-                description = {data.description}
+                summary = {data.summary}
                 link = {data.link}
                 key = {index} />
         })}
@@ -44,15 +44,13 @@ const News = () => {
         display: 'inline-block', 
         padding: '16px', 
         margin: '16px', 
-        border: '1px solid black',
-        flex: "40%"
+        border: '1px solid black'
     }
 
     return (
         <div style={{display: "flexbox"}}>
             <div style={style}>
-                <p>News Component in left column</p>
-                {newsFeed}
+                {isLoading ? (<div>Loading...</div>) : (<div>{newsFeed}</div>)}
             </div>
         </div>
     )

@@ -6,15 +6,16 @@ from pprint import pprint
 # print("TITLE:", data.feed.link)
 # print(data.feed.description)
 
+
 def get_news():
-    url = "https://www.rotowire.com/rss/news.htm?sport=nba"
+    url = "https://www.espn.com/espn/rss/nba/news"
     data = feedparser.parse(url)    
     to_send = []
     for i in data.entries:
         new_story = {
         "title": i.title,
         "link": i.link,
-        "description": i.description,
+        "summary": i.summary,
         "published": i.published
         }
         to_send.append(new_story)

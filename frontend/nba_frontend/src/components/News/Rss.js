@@ -8,7 +8,7 @@ const rss = (props) => {
         <>
             <a href={props.link} title={props.title}><h3><strong>{props.title}</strong></h3></a>
             <p>{props.published}</p>
-            <p>{props.description}</p>
+            <p>{props.summary}</p>
         </>
     )
 }
