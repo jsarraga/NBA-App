@@ -4,18 +4,19 @@ import ViewPlayerStats from '../ViewPlayerStats/ViewPlayerStats'
 import './PlayerStats.css';
 
 const PlayerStats = () => {
+
     const [firstname, setFirstname] = useState('Stephen')
     const [lastname, setLastname] = useState('Curry')
-    const [playerStatsData, setPlayerStatsData] = useState({pts:0, ast: 0, reb:0, fgp:0, 
+    const [playerStatsData, setPlayerStatsData] = useState([{pts:0, ast: 0, reb:0, fgp:0, 
                                                             ftp:0, g:0, gs:0, mp:0, reb:0, stl:0, 
-                                                            tov:0, tpm:0, });
+                                                            tov:0, tpm:0, }]);
     const [isLoading, setIsLoading] = useState(true);
 
     const getPlayerStats = () => {
         const sendPlayerStats = async () => {
             setIsLoading(true);
             try {
-                const res = await axios(`http://localhost:5000/${firstname}/${lastname}/recent_stats`) // change to template string firstname, lastname
+                const res = await axios(`http://localhost:5000/Stephen/Curry/recent_stats`) // change to template string firstname, lastname -> gets from clicking on component in player list
                 if (res.data) {
                     console.log(res.data)
                     setPlayerStatsData(res.data)
@@ -25,7 +26,7 @@ const PlayerStats = () => {
                 console.error(error)
             }
         }
-        sendPlayerStats()
+        sendPlayerStats();
     }
 
     const showPlayerStats = (
@@ -50,8 +51,8 @@ const PlayerStats = () => {
 
     return(
         <div>
-            <p>Players</p>
-            <button class="button" onClick={e => {getPlayerStats()}}>See Stats </button>
+            <p>Stats</p>
+            <button onClick={e => {getPlayerStats()}}>See Stats </button>
             {showPlayerStats}  
         </div>
     )

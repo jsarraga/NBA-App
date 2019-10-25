@@ -53,7 +53,7 @@ const Players = () => {
     return(
         <div className="leftcolumn">
             <p>Players</p>
-            <button class="button" onClick={e => {getPlayers()}}>See all Players</button>
+            <button onClick={e => {getPlayers()}}>See all Players</button>
             {showPlayers}  
         </div>
     

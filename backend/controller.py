@@ -71,14 +71,16 @@ def get_my_team(api_key):
 def get_player_info(firstname, lastname):
     name = firstname + " " + lastname
     player = Player.get_player(name)
+    info_list = []
     if player:
         data = {}
         data["name"] = player.name
         data["age"] = player.age
         data["pos"] = player.pos  
+        info_list.append(data)
     else:
         data = {"name": "PLAYER NOT FOUND" }
-    return jsonify(data)
+    return jsonify(info_list)
 
 @app.route("/<firstname>/<lastname>/recent_stats", methods=['GET'])
 def get_player_recent_stats(firstname, lastname):
@@ -87,24 +89,23 @@ def get_player_recent_stats(firstname, lastname):
     stats = player.get_recent_stats()
     player_list = []
     if stats:
-        for stat in stats:
-            data = {}
-            data["pts"] = stats[4]
-            data["tpm"] = stats[5]
-            data["reb"] = stats[6]
-            data["ast"] = stats[7]
-            data["stl"] = stats[8]
-            data["blk"] = stats[9]
-            data["fgp"] = stats[10]
-            data["ftp"] = stats[11]
-            data["tov"] = stats[12]
-            data["g"] = stats[13]
-            data["gs"] = stats[14]
-            data["mp"] = stats[15]
-            player_list.append(data)
+        data = {}
+        data["pts"] = stats[4]
+        data["tpm"] = stats[5]
+        data["reb"] = stats[6]
+        data["ast"] = stats[7]
+        data["stl"] = stats[8]
+        data["blk"] = stats[9]
+        data["fgp"] = stats[10]
+        data["ftp"] = stats[11]
+        data["tov"] = stats[12]
+        data["g"] = stats[13]
+        data["gs"] = stats[14]
+        data["mp"] = stats[15]
+        player_list.append(data)
     else:
         data = {"name": "PLAYER NOT FOUND" }
-    return jsonify(data)
+    return jsonify(player_list)
 
 
 if __name__ == "__main__":
