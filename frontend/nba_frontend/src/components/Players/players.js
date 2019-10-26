@@ -50,13 +50,11 @@ const Players = () => {
         </div>
     )
 
-
     return(
         <div className="leftcolumn">
             <p>Players</p>
             <button onClick={e => {getPlayers()}}>See all Players</button>
             {showPlayers} 
-            <Popup /> 
         </div>
     
     )

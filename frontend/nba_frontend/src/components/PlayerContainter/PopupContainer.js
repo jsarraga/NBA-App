@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
 
 let popupStyles = {
@@ -29,27 +29,24 @@ let popupCloseButtonStyles = {
     alignSelf: 'flex-end'
 };
 
+const PopupContainer = (props) => {
+    let popup = (
+        <div style={popupStyles}>
+            <p>This is a player container</p>
+            <button style={popupCloseButtonStyles} onClick={props.onClose}>x</button>
+            <div>{props.children}</div>
+            {/* Add a radar graph component */}
+        </div>
+    )
 
-class PopupContainer extends Component {
-    render() {
-        let popup = (
-            <div style={popupStyles}>
-                <p>This is a player container</p>
-                <button style={popupCloseButtonStyles} onClick={this.props.onClose}>x</button>
-                <div>{this.props.children}</div>
-                {/* Add a radar graph component */}
-            </div>
-        )
-
-        if(! this.props.isOpen) {
-            popup = null;
-        }
-        return (
-            <div>
-                {popup}
-            </div>
-        )
+    if(! props.isOpen) {
+        popup = null;
     }
+    return (
+        <div>
+            {popup}
+        </div>
+    )
 }
 
 export default PopupContainer;

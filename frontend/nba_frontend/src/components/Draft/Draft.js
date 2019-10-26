@@ -9,8 +9,8 @@ const draft = () => {
             <p>Draft</p>
             <span> PLAYER LIST IN LEFT COLUMN</span>
             <Players />
-            <span>NEED TP BUILD LISTENER TO RENDER INFO/STATS IN CONTAINTER WHEN CLICKED FROM PLAYERLIST</span>
-            <PlayerContainer />
+            <span>Team list on the right</span>
+            
         </div>
     )
 }
