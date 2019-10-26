@@ -1,6 +1,7 @@
 import React from 'react'
 import './TeamPlayer.css';
 
+
 const TeamPlayer = () => {
 
     return ( 

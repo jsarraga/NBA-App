@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import './Players.css';
 import PlayerList from '../PlayerList/PlayerList';
+import Popup from '../PlayerContainter/Popup'
 
 const Players = () => {
 
@@ -54,7 +55,8 @@ const Players = () => {
         <div className="leftcolumn">
             <p>Players</p>
             <button onClick={e => {getPlayers()}}>See all Players</button>
-            {showPlayers}  
+            {showPlayers} 
+            <Popup /> 
         </div>
     
     )

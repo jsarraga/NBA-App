@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 
 let popupStyles = {
     width: '500px',
@@ -9,7 +10,7 @@ let popupStyles = {
     top: '50%',
     transform: 'translate(-50%, -50%)',
     zIndex: '999',
-    backgroundColor: 'eee',
+    backgroundColor: '#eee',
     padding: '10px 20px 40px',
     borderRadius: '8px',
     display: 'flex',
@@ -28,16 +29,27 @@ let popupCloseButtonStyles = {
     alignSelf: 'flex-end'
 };
 
-class Popup extends Component{
+
+class PopupContainer extends Component {
     render() {
-        return (
+        let popup = (
             <div style={popupStyles}>
-                <button style={popupCloseButtonStyles}>x</button>
-               <div>{this.props.children}</div>
+                <p>This is a player container</p>
+                <button style={popupCloseButtonStyles} onClick={this.props.onClose}>x</button>
+                <div>{this.props.children}</div>
+                {/* Add a radar graph component */}
             </div>
-        );
+        )
+
+        if(! this.props.isOpen) {
+            popup = null;
+        }
+        return (
+            <div>
+                {popup}
+            </div>
+        )
     }
-    
 }
 
-export default Popup;
+export default PopupContainer;
