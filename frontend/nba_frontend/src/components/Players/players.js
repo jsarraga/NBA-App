@@ -29,22 +29,7 @@ const Players = () => {
     const showPlayers = (
         <div>{playerData.map((data, index) => {
             return <PlayerList
-            name = {data.name}
-            age = {data.age}
-            pos = {data.pos}
-            tm = {data.tm}
-            pts = {data.pts}
-            tpm = {data.tpm}
-            reb = {data.reb}
-            ast = {data.ast}
-            stl = {data.stl}
-            blk = {data.blk}
-            fgp = {data.fgp}
-            ftp = {data.ftp}
-            tov = {data.tov}
-            g = {data.g}
-            gs = {data.gs}
-            mp = {data.mp}
+            data = {data}
             key =  {index} />
         })}
         </div>

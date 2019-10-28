@@ -5,13 +5,16 @@ import PlayerUpdate from '../PlayerUpdate/PlayerUpdate'
 import './Home.css'
 
 function Home() {
+
     return (
-        <div>
-            <p>Homepage</p>
-            <News />
-            <Watchlist />
-            <p>multiple player update components in right column</p>
-            <PlayerUpdate />
+        <div className="column">
+            <div className="feed" >
+                <p>Homepage</p>
+                <News />
+                <Watchlist />
+                <p>multiple player update components in right column</p>
+                <PlayerUpdate />
+            </div>
         </div>
     )
 }

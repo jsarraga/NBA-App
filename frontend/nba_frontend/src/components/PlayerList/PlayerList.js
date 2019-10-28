@@ -18,15 +18,15 @@ const PlayerList = (props) => {
     return ( 
         <div>
             <div style={style} onClick={(e) => setIsOpen(true)}>
-                <span>Name:{props.name}, Age:{props.age}, Position:{props.pos}, Team:{props.tm}</span> 
-                <p>Points:{props.pts}, 3 Pointers Made:{props.tpm}, Rebounds:{props.reb}, Assists:{props.ast}, Steals:{props.stl}, 
-                Blocks:{props.blk}, FG%:{props.fgp}, FT%:{props.ftp}, Turnovers:{props.tov}, Games:{props.g}, 
-                Games Started:{props.gs}, Minutes:{props.mp}</p>
+                <span>Name:{props.data.name}, Age:{props.data.age}, Position:{props.data.pos}, Team:{props.data.tm}</span> 
+                <p>Points:{props.data.pts}, 3 Pointers Made:{props.data.tpm}, Rebounds:{props.data.reb}, Assists:{props.data.ast}, Steals:{props.data.stl}, 
+                Blocks:{props.data.blk}, FG%:{props.data.fgp}, FT%:{props.data.ftp}, Turnovers:{props.data.tov}, Games:{props.data.g}, 
+                Games Started:{props.data.gs}, Minutes:{props.data.mp}</p>
             </div> 
             <div>
                 <PopupContainer isOpen={isOpen} onClose={(e) => setIsOpen(false)}>
-                    <PlayerInfo />
-                    <PlayerStats />
+                    <PlayerInfo data={props.data}/>
+                    <PlayerStats data={props.data}/>
                 </PopupContainer>
             </div>
         </div>

@@ -1,0 +1,8 @@
+.column{
+    display: flex;
+    flex-wrap: flex;
+}
+
+.leftcol {
+    flex: 70%;
+}

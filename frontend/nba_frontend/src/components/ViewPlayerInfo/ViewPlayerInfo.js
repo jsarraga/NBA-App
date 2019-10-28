@@ -12,7 +12,8 @@ const ViewPlayerInfo = (props) => {
 
     return (
         <div style={style}>
-            <p>Name:{props.name}, Age:{props.age}, Position:{props.pos}</p>
+            <span>{console.log(props.team)}</span>
+            <p>Name:{props.data.name}, Age:{props.data.age}, Position:{props.data.pos}, Team: {props.team}</p>
         </div> 
     )
 }

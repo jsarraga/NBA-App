@@ -13,9 +13,9 @@ const ViewPlayerStats = (props) => {
 
     return (
         <div style={style}>
-            <p>Points:{props.pts}, 3 Pointers Made:{props.tpm}, Rebounds:{props.reb}, Assists:{props.ast}, Steals:{props.stl}, 
-            Blocks:{props.blk}, FG%:{props.fgp}, FT%:{props.ftp}, Turnovers:{props.tov}, Games:{props.g}, 
-            Games Started:{props.gs}, Minutes:{props.mp}</p>
+            <p>Points:{props.data.pts}, 3 Pointers Made:{props.data.tpm}, Rebounds:{props.data.reb}, Assists:{props.data.ast}, Steals:{props.data.stl}, 
+            Blocks:{props.data.blk}, FG%:{props.data.fgp}, FT%:{props.data.ftp}, Turnovers:{props.data.tov}, Games:{props.data.g}, 
+            Games Started:{props.data.gs}, Minutes:{props.data.mp}</p>
         </div> 
     )
 }

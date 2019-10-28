@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
 let popupStyles = {
-    width: '500px',
+    width: '400px',
     maxWidth: '100%',
     margin: '0 auto',
     position: 'fixed',
@@ -32,7 +32,7 @@ let popupCloseButtonStyles = {
 const PopupContainer = (props) => {
     let popup = (
         <div style={popupStyles}>
-            <p>This is a player container</p>
+            <p>This is a popup container</p>
             <button style={popupCloseButtonStyles} onClick={props.onClose}>x</button>
             <div>{props.children}</div>
             {/* Add a radar graph component */}

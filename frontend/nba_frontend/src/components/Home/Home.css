@@ -1,0 +1,8 @@
+.column {
+        display: flex;
+        flex-wrap: flex;
+}
+
+.feed {
+    flex: 70%;
+}

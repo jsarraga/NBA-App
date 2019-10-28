@@ -59,7 +59,7 @@ def get_players():
 @app.route("/<api_key>/myteam", methods =["GET"])
 def get_my_team(api_key):
     account = Account.api_authenticate(api_key)
-    team = account.get_my_team()
+    team = account.get_team()
     data = {}
     for player in team:
         data["name"] = player[1]
@@ -71,25 +71,23 @@ def get_my_team(api_key):
 def get_player_info(firstname, lastname):
     name = firstname + " " + lastname
     player = Player.get_player(name)
-    info_list = []
     if player:
         data = {}
         data["name"] = player.name
         data["age"] = player.age
         data["pos"] = player.pos  
-        info_list.append(data)
     else:
         data = {"name": "PLAYER NOT FOUND" }
-    return jsonify(info_list)
+    return jsonify(data)
 
 @app.route("/<firstname>/<lastname>/recent_stats", methods=['GET'])
 def get_player_recent_stats(firstname, lastname):
     name = firstname + " " + lastname
     player = Player.get_player(name)
     stats = player.get_recent_stats()
-    player_list = []
     if stats:
         data = {}
+        data["tm"] = stats[3]
         data["pts"] = stats[4]
         data["tpm"] = stats[5]
         data["reb"] = stats[6]
@@ -102,10 +100,9 @@ def get_player_recent_stats(firstname, lastname):
         data["g"] = stats[13]
         data["gs"] = stats[14]
         data["mp"] = stats[15]
-        player_list.append(data)
     else:
         data = {"name": "PLAYER NOT FOUND" }
-    return jsonify(player_list)
+    return jsonify(data)
 
 @app.route("/newsfeed", methods=["GET"])
 def newsfeed():

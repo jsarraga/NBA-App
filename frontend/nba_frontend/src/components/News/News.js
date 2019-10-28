@@ -44,13 +44,16 @@ const News = () => {
         display: 'inline-block', 
         padding: '16px', 
         margin: '16px', 
-        border: '1px solid black'
+        border: '1px solid black',
+        flex: '70%'
     }
 
     return (
-        <div style={{display: "flexbox"}}>
-            <div style={style}>
-                {isLoading ? (<div>Loading...</div>) : (<div>{newsFeed}</div>)}
+        <div className="column">
+            <div className='leftcol'>
+                <div style={style}>
+                    {isLoading ? (<div>Loading...</div>) : (<div>{newsFeed}</div>)}
+                </div>
             </div>
         </div>
     )
