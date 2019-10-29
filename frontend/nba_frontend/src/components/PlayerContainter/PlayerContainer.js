@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import PlayerStats from '../PlayerStats/PlayerStats';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
+import RadarChart from '../Charts/Chart'
 
 
 function PlayerContainer() {
@@ -12,7 +13,7 @@ function PlayerContainer() {
     const [playerInfoData, setPlayerInfoData] = useState({name: "Stephen Curry", age:30, pos:"PG", tm:"GSW" });
     const [playerStatsData, setPlayerStatsData] = useState({tm: "GSW", pts:0, ast: 0, reb:0, fgp:0, 
         ftp:0, g:0, gs:0, mp:0, reb:0, stl:0, 
-        tov:0, tpm:0, });
+        tov:0, tpm:0, blk:0 });
     const [isLoading, setIsLoading] = useState(true);
 
 
@@ -64,7 +65,6 @@ function PlayerContainer() {
     return (
         <div style={style}>
             <div>
-                <p>This is a player container</p>
                 <input type ="text" id="firstname"  placeholder="First Name" onChange= {(e) => {setFirstname(e.target.value)}} />
                 <input type="text" id="laststname" placeholder="Last Name" onChange= {(e) => {setLastname(e.target.value)}} />
                 <button type="submit" onClick={(e) => {setInfoUrl(`http://localhost:5000/${firstname}/${lastname}/info`); 
@@ -72,9 +72,8 @@ function PlayerContainer() {
             </div>  
             <div>
                 <PlayerInfo data={playerInfoData} team={playerStatsData.tm}/>
-                <div>{console.log(playerStatsData.tm)}</div>
                 <PlayerStats data={playerStatsData} />
-                {/* Add a radar graph component */}
+                <RadarChart data={playerStatsData}/>
             </div>
         </div>
     )

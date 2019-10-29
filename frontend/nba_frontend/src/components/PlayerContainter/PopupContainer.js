@@ -2,16 +2,17 @@ import React from 'react'
 
 
 let popupStyles = {
-    width: '400px',
-    maxWidth: '100%',
+    width: '450px',
+    maxWidth: '75%',
+    height: '500px',
     margin: '0 auto',
     position: 'fixed',
-    left: '50%',
+    left: '75%',
     top: '50%',
     transform: 'translate(-50%, -50%)',
     zIndex: '999',
     backgroundColor: '#eee',
-    padding: '10px 20px 40px',
+    padding: '10px 20px 10px',
     borderRadius: '8px',
     display: 'flex',
     flexDirection: 'column'
@@ -32,7 +33,6 @@ let popupCloseButtonStyles = {
 const PopupContainer = (props) => {
     let popup = (
         <div style={popupStyles}>
-            <p>This is a popup container</p>
             <button style={popupCloseButtonStyles} onClick={props.onClose}>x</button>
             <div>{props.children}</div>
             {/* Add a radar graph component */}

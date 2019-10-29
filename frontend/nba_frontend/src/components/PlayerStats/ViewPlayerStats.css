@@ -1,0 +1,23 @@
+td {
+    padding: 0.5rem;
+    flex-wrap: initial;
+  }
+
+td:hover {
+background-color: rgba(52, 200, 245, 0.876);
+}
+
+th {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: darkgray;
+  color: white;
+}
+
+table {
+    border-collapse: collapse;
+  }
+  
+table, th, td {
+border: 1px solid black;
+}

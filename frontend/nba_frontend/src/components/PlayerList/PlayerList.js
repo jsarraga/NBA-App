@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import PlayerInfo from "../PlayerInfo/PlayerInfo"
 import PlayerStats from '../PlayerStats/PlayerStats'
+import { Flex, Box } from 'rebass';
 import PopupContainer from '../PlayerContainter/PopupContainer'
-import Popup from '../PlayerContainter/Popup';
+import RadarChart from '../Charts/Chart'
 import './PlayerList.css';
 
 const PlayerList = (props) => {
@@ -23,12 +24,15 @@ const PlayerList = (props) => {
                 Blocks:{props.data.blk}, FG%:{props.data.fgp}, FT%:{props.data.ftp}, Turnovers:{props.data.tov}, Games:{props.data.g}, 
                 Games Started:{props.data.gs}, Minutes:{props.data.mp}</p>
             </div> 
-            <div>
-                <PopupContainer isOpen={isOpen} onClose={(e) => setIsOpen(false)}>
-                    <PlayerInfo data={props.data}/>
-                    <PlayerStats data={props.data}/>
-                </PopupContainer>
-            </div>
+                <Flex>
+                    <Box>
+                        <PopupContainer isOpen={isOpen} onClose={(e) => setIsOpen(false)}>
+                            <PlayerInfo data={props.data} team={props.data.tm}/>
+                            <PlayerStats data={props.data}/>
+                            <RadarChart data={props.data}/>
+                        </PopupContainer>
+                    </Box>
+                </Flex>
         </div>
     )
 }
