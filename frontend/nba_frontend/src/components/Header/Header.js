@@ -6,7 +6,7 @@ import Players from '../Players/Players';
 import Team from '../Team/Team';
 import Draft from '../Draft/Draft';
 import Comparison from '../Comparison/Comparison';
-import Logo from './img/MJ.jpg';
+import Logo from './img/wings.png';
 import './Header.css';
 
 
@@ -14,7 +14,7 @@ function Header() {
 
     return(
         <div className="Header">
-            <img src={Logo} alt="logo" width="65%"/> <br/>
+            <img src={Logo} alt="logo" width="70%"/> <br/>
             <topnav className="nav"> 
                 <Link type="nav" className="link" to="/Home">Home</Link>
                 <Link type="nav" className="link" to="/Players">Players</Link>

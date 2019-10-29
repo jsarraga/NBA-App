@@ -35,8 +35,7 @@ const Players = () => {
     )
 
     return(
-        <div>
-            <p>Players</p>
+        <div className="players">
             <button onClick={e => {getPlayers()}}>See all Players</button>
             {showPlayers} 
         </div>

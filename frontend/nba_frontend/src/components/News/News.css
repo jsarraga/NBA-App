@@ -1,8 +1,4 @@
-.column{
-    display: flex;
-    flex-wrap: flex;
+.news{
+    background-color: white;
 }
 
-.leftcol {
-    flex: 70%;
-}

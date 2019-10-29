@@ -12,7 +12,7 @@ function Home() {
     return (
         <ThemeProvider theme={theme}>
             <Flex>
-                <Box p={4} width={2/3} color='black' bg='white'>
+                <Box p={4} width={2/3} color='black' bg='tansparent'>
                     <div className="feed" >
                         <p>News Feed</p>
                         <News />

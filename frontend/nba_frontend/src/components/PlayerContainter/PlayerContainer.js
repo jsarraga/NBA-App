@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import PlayerStats from '../PlayerStats/PlayerStats';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
-import RadarChart from '../Charts/Chart'
+import RadarChart from '../Charts/RadarChart'
 
 
 function PlayerContainer() {
@@ -73,7 +73,8 @@ function PlayerContainer() {
             <div>
                 <PlayerInfo data={playerInfoData} team={playerStatsData.tm}/>
                 <PlayerStats data={playerStatsData} />
-                <RadarChart data={playerStatsData}/>
+                {/* <RadarChart data={playerStatsData} /> */}
+                <div>{console.log(playerStatsData)}</div>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import ReactApexChart from 'react-apexcharts';
 import React from 'react';
-import './Chart.css';
+import './RadarChart.css';
 
 
 
@@ -44,13 +44,12 @@ class RadarChart extends React.Component {
       }
     }
 
-
     render() {
+      
       return (
           <div id="chart" className="chart">
             <ReactApexChart options={this.state.options} series={this.state.series} type="radar" height="200" />
           </div>
-  
 
         );
       }

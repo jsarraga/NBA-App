@@ -45,13 +45,13 @@ const News = () => {
         padding: '16px', 
         margin: '16px', 
         border: '1px solid black',
-        flex: '70%'
+        backgroundcolor: 'white'
     }
 
     return (
-        <div className="column">
-            <div className='leftcol'>
-                <div style={style}>
+        <div >
+            <div >
+                <div style={style} className="news">
                     {isLoading ? (<div>Loading...</div>) : (<div>{newsFeed}</div>)}
                 </div>
             </div>
