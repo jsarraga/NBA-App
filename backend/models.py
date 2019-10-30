@@ -38,3 +38,4 @@ def get_by_stat(stat):
         players = cur.fetchall()
         return players
 
+

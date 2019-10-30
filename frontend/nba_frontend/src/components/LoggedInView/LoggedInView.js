@@ -10,9 +10,6 @@ function LoggedInView() {
     return (
         <div>
             <h3>Access Token is: {token}</h3>
-            <BrowserRouter>
-                <Header />
-            </BrowserRouter>
         </div>
     )
 }

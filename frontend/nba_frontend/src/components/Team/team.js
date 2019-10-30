@@ -9,9 +9,9 @@ function Team() {
     return (
         <div>
             <p>Please Log in to see your team</p>
-            <Login />
+            {/* <Login />
             <TeamPlayer />
-            <Watchlist />
+            <Watchlist />  */}
         </div>
     )
 }

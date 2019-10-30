@@ -5,8 +5,8 @@ td {
   }
 
 td:hover {
-background-color: rgba(52, 200, 245, 0.876);
-}
+  background-color: rgba(52, 200, 245, 0.876);
+  }
 
 th {
   padding: 0.5rem;
@@ -16,9 +16,10 @@ th {
 }
 
 table {
-    border-collapse: collapse;
-  }
+  border-collapse: collapse;
+}
   
 table, th, td {
-border: 1px solid black;
+  border: 1px solid black;
 }
+

@@ -35,7 +35,6 @@ const PopupContainer = (props) => {
         <div style={popupStyles}>
             <button style={popupCloseButtonStyles} onClick={props.onClose}>x</button>
             <div>{props.children}</div>
-            {/* Add a radar graph component */}
         </div>
     )
 
