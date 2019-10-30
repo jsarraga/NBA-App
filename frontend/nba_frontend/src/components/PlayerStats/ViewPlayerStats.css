@@ -17,6 +17,7 @@ th {
 
 table {
   border-collapse: collapse;
+  align-content: center;
 }
   
 table, th, td {
