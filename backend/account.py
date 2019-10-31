@@ -9,7 +9,7 @@ where_clause = "SELECT * FROM {}"
 class Account(ORM):
     dbpath = DATABASE
     tablename = "accounts"
-    fields = ['username', 'password_hash']
+    fields = ['username', 'password_hash', 'api_key']
 
     def __init__(self, **kwargs):
         self.username = kwargs.get('username')
@@ -37,10 +37,12 @@ class Account(ORM):
     def login(cls, username, password):
         with sqlite3.connect(DATABASE) as conn:
             cur = conn.cursor()
-            SQL = where_clause.format("WHERE username=? AND password_hash=?")
+            SQL = where_clause.format("accounts WHERE username=? AND password_hash=?")
             cur.execute(SQL, (username, hash_password(password)))
             account = cur.fetchone()
-        return account    
+            if not account:
+                return None
+            return account    
 
     def set_password(self, password):
         self.password_hash = hash_password(password)

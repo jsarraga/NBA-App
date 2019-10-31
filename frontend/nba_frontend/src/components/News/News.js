@@ -50,10 +50,8 @@ const News = () => {
 
     return (
         <div >
-            <div >
-                <div style={style} className="news">
-                    {isLoading ? (<div>Loading...</div>) : (<div>{newsFeed}</div>)}
-                </div>
+            <div style={style} className="news">
+                {isLoading ? (<div>Loading...</div>) : (<div>{newsFeed}</div>)}
             </div>
         </div>
     )

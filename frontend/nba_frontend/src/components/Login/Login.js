@@ -35,7 +35,7 @@ function Login() {
                     password: inputPassword
                 }
                 const res = await axios.post(endpoint, data);
-                console.log(res.data)
+                console.log(res.data.api_key)
                 if (res.data.api_key) {
                     setValue(res.data.api_key)
                 } else {
@@ -82,15 +82,15 @@ function Login() {
     let contents = null
     if (value) {
         contents = (
-            <div className="Login">
-                <TeamPlayers />
+            <div >
+                <TeamPlayers token={value}/>
                 <br></br>
                 <button onClick={e=> {setValue(null);}}>Log Out</button>
             </div>
         )
     } else {
         contents = (
-            <div className="Login">
+            <div >
                 {isAuthenticating ? (<p>Authenticating...</p>) : (<p>Authorized</p>)}
                 {isAuthError && <p>Authenticathion Error</p>}
 

@@ -59,7 +59,7 @@ const PlayerList = (props) => {
                         </table> 
                     </Text>
                 </div> 
-                <PopupContainer isOpen={isOpen} onClose={(e) => setIsOpen(false)}>
+                <PopupContainer isOpen={isOpen} data={props.data} onClose={(e) => setIsOpen(false)}>
                     <PlayerInfo data={props.data} team={props.data.tm}/>
                     <PlayerStats data={props.data}/>
                     <RadarChart data={props.data}/>

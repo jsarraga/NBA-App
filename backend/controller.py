@@ -7,6 +7,14 @@ import models, util, parse
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/newsfeed", methods=["GET"])
+def newsfeed():
+    news = parse.get_news()
+    if news:
+        return jsonify(news)
+    else:
+        data = {"news": "no news for today."}
+
 @app.route("/api/create", methods=['POST'])
 def create_account():
     api_key = util.random_api_key()
@@ -25,7 +33,7 @@ def create_account():
 def get_api_key():
     data = request.get_json()
     account = Account.login(username=data['username'], password=data['password'])
-    return jsonify({"api_key": account.api_key})
+    return jsonify({"api_key": account[3]})
 
 @app.route("/all_players", methods = ["GET"])
 def get_players():
@@ -56,18 +64,7 @@ def get_players():
         data = {"name": "PLAYER NOT FOUND" }
     return jsonify(player_list)
 
-@app.route("/<api_key>/myteam", methods =["GET"])
-def get_my_team(api_key):
-    account = Account.api_authenticate(api_key)
-    team = account.get_team()
-    data = {}
-    for player in team:
-        data["name"] = player[1]
-        data["pos"] = player[4]
-    return jsonify(data)
-
-# might want to add team to the below. But have to get it from player_seasons
-@app.route("/<firstname>/<lastname>/info", methods =["GET"])
+@app.route("/<firstname>/<lastname>/info", methods = ["GET"])
 def get_player_info(firstname, lastname):
     name = firstname + " " + lastname
     player = Player.get_player(name)
@@ -104,13 +101,24 @@ def get_player_recent_stats(firstname, lastname):
         data = {"name": "PLAYER NOT FOUND" }
     return jsonify(data)
 
-@app.route("/newsfeed", methods=["GET"])
-def newsfeed():
-    news = parse.get_news()
-    if news:
-        return jsonify(news)
-    else:
-        data = {"news": "no news for today."}
+@app.route("/<api_key>/addtoteam/<firstname>/<lastname>", methods = ['GET'])
+def draft_player(api_key, firstname, lastname):
+    account = Account.api_authenticate(api_key)
+    name = firstname + " " + lastname
+    account.draft_player(name)
+    return jsonify({"added": name})
+
+@app.route("/<api_key>/myteam", methods = ["GET"])
+def get_my_team(api_key):
+    account = Account.api_authenticate(api_key)
+    team = account.get_team()
+    team_list = []
+    for player in team:
+        data = {}
+        data["name"] = player[1]
+        data["pos"] = player[3]
+        team_list.append(data)
+    return jsonify(team_list)
 
 
 if __name__ == "__main__":
