@@ -7,8 +7,9 @@ DATABASE = "../data/nba.db"
 where_clause = "SELECT * FROM {}"
 
 class Account(ORM):
+    dbpath = DATABASE
     tablename = "accounts"
-    fields = ['username', 'password']
+    fields = ['username', 'password_hash']
 
     def __init__(self, **kwargs):
         self.username = kwargs.get('username')

@@ -16,7 +16,7 @@ def create_account():
     account.username = data['username']
     password = data['password']
     hashed_pass = util.hash_password(password)
-    account.password = hashed_pass
+    account.password_hash = hashed_pass
     account.api_key = api_key
     account.save()
     return jsonify({"api_key": account.api_key})

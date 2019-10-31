@@ -1,13 +1,14 @@
 import React, { useState, useEffect} from 'react'
 import './Team.css';
 import axios from 'axios';
-import TeamPlayer from '../TeamPlayer/TeamPlayer';
+import TeamPlayers from '../TeamPlayers/TeamPlayers';
+import Players from '../Players/Players';
 import Login from '../Login/Login';
 
 
 function Team() {
 
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     const [teamData, setTeamData] = useState('');
     const [url, setUrl] = useState(`http://localhost5000:/${token}/myteam`)
     const [isError, setIsError] = useState(false);
@@ -31,26 +32,10 @@ function Team() {
       }, [url]);
 
 
-
     return (
-        <div>
-            <div>
-                {/* <p>This is the Portfolio View!</p>
-                <input type="text" />
-                <button>View All</button>
-                <button onClick={e => setUrl(`http://localhost:5000/${token}/myteam/`)}>Submit</button>
-                {isError && <h3>Processing Error. Check your console</h3>}
-                { isLoading ? (<div>Loading....</div>) : (<div>Loaded</div>)} */}
-            </div>
-
-
-            <div>
-                <p>Please Log in to see your team</p>
-                {/* <Login />
-                <TeamPlayer />
-                <Watchlist />  */}
-            </div>
-        </div>
+      <div>
+        <Login />
+      </div>
     )
 }
 

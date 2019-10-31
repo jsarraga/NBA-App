@@ -1,18 +1,18 @@
 import React, { useState, useEffect  } from 'react';
 import axios from 'axios';
-import LoggedInView from '../LoggedInView/LoggedInView';
+import Team from '../Team/Team';
+import TeamPlayers from '../TeamPlayers/TeamPlayers';
 
 
 function Login() {
 
-    const useStateWithLocalStorage = localStorageKey => {
+    const useStateWithSessionStorage = sessionStorageKey => {
         const [value, setValue] = React.useState(
-            localStorage.getItem(localStorageKey) || '');
+            sessionStorage.getItem(sessionStorageKey) || '');
         return [value, setValue];
     };
 
-    const [value, setValue] = useStateWithLocalStorage('token');
-
+    const [value, setValue] = useStateWithSessionStorage('token');
     const [isError, setIsError] = useState(false);
     const [isAuthError, setIsAuthError] = useState(false);
     const [isAuthenticating, setIsAuthenticating] = useState(false);
@@ -20,7 +20,7 @@ function Login() {
     const [inputUser, setInputUser] = useState('');
 
     useEffect(() => {
-        localStorage.setItem('token', value);
+        sessionStorage.setItem('token', value);
     }, [value]);
 
     const getToken = () => {
@@ -51,13 +51,41 @@ function Login() {
         sendData();
     };
 
+    const createAccount = () => {
+        const sendData = async () => {
+            setIsAuthenticating(true);
+            setIsError(false);
+            setIsAuthError(false);
+            try {
+                const endpoint = 'http://localhost:5000/api/create';
+                const data = {
+                    username: inputUser,
+                    password: inputPassword
+                }
+                const res = await axios.post(endpoint, data);
+                console.log(res.data)
+                if (res.data.api_key) {
+                    setValue(res.data.api_key)
+                } else {
+                    setIsAuthError(true)
+                }
+            }
+            catch (error) {
+                console.error(error);
+                setIsError(true)
+            }
+            setIsAuthenticating(false)
+        }
+        sendData();
+    };
+
     let contents = null
     if (value) {
         contents = (
             <div className="Login">
-                <LoggedInView />
+                <TeamPlayers />
                 <br></br>
-                <button onCLick={e=> {setValue(null);}}>Log Out</button>
+                <button onClick={e=> {setValue(null);}}>Log Out</button>
             </div>
         )
     } else {
@@ -72,6 +100,7 @@ function Login() {
                     <input type="text" onChange={e=> {setInputUser(e.target.value)}} placeholder="Username" />
                     <input type="password" onChange={e => {setInputPassword(e.target.value)}} placeholder="Password" />
                     <button onClick={e => {getToken(); e.preventDefault();}}>Log In</button>
+                    <button onClick={e => {createAccount(); e.preventDefault();}}>Create Account</button>
                 </form>
                 {isError && <h3>Processing Error</h3>}
                 <button onClick={e => {setValue(null);}}>Log Out</button>
