@@ -14,11 +14,6 @@ const TeamPlayer = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const [nothing, setIsNothing] = useState('');
 
-
-    // token coming back as null
-    console.log(url)
-    
-
     // easier way to have a useEffect with a 'nothing' listener? Need it just to automatically fetchdata from url upon pageload
     // let plyers = fetchdata
 
@@ -53,6 +48,7 @@ const TeamPlayer = (props) => {
     return (
       <div>
           {isLoading ? (<div>Loading...</div>) : (<div>{myteam}</div>)}
+          {/* <RadarChart data={playerData} /> */}
       </div>
     )
 }
