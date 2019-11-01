@@ -13,8 +13,8 @@ import './Header.css';
 function Header() {
 
     return(
-        <div className="Header">
-            <img src={Logo} alt="logo" width="70%"/> <br/>
+        <div className="header">
+            <img src={Logo} alt="logo" width="70%" padding="30px"/> <br/>
             <topnav className="nav"> 
                 <Link type="nav" className="link" to="/Home">Home</Link>
                 <Link type="nav" className="link" to="/Players">Players</Link>

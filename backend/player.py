@@ -51,9 +51,3 @@ class Player:
             stats = cur.fetchone()
             return stats
 
-if __name__ == "__main__":
-    steph = Player(pk=124, name="Stephen Curry", age=30, pos="PG")
-    # print(steph.get_all_seasons_stats())
-    # print(steph.get_one_seasons_stats("18-19"))
-    # print(steph.get_recent_seasons_stats())
-    

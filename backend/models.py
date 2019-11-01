@@ -15,7 +15,7 @@ def get_all_players():
 def get_by_position(position):
     with sqlite3.connect(DATABASE) as conn:
         cur = conn.cursor()
-        SQL = where_clause.format("players", "pos=?")
+        SQL = where_clause.format("players WHERE pos=?")
         cur.execute(SQL, (position,))
         players = cur.fetchall()
         return players

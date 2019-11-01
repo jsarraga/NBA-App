@@ -1,4 +1,30 @@
 .stats {
-    text-align: center;
+    background: "red";
     align-content: center;
+}
+
+td {
+    padding: 0.5rem;
+    flex-wrap: initial;
+    font-weight: 700;
+  }
+
+td:hover {
+  background-color: rgba(52, 200, 245, 0.876);
+  }
+
+th {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: darkgray;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  align-content: center;
+}
+  
+table, th, td {
+  border: 1px solid black;
 }

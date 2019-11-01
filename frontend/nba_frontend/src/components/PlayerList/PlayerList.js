@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PlayerInfo from "../PlayerInfo/PlayerInfo"
 import PlayerStats from '../PlayerStats/PlayerStats'
 import { Flex, Box, Text } from 'rebass';
-import PopupContainer from '../PlayerContainter/PopupContainer'
+import PopupContainer from '../PopupContainter/PopupContainer'
 import RadarChart from '../Charts/RadarChart'
 import './PlayerList.css';
 

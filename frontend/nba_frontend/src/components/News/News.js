@@ -9,6 +9,7 @@ const News = () => {
                                                 link: "none", published: "none"}])
     const [isLoading, setIsLoading] = useState(true)
 
+    // switch this to a regular function, not useEffect
     useEffect( () => {
         const sendNews = async () => {
             setIsLoading(true);

@@ -1,6 +1,5 @@
 import React, { useState, useEffect  } from 'react';
 import axios from 'axios';
-import Team from '../Team/Team';
 import TeamPlayers from '../TeamPlayers/TeamPlayers';
 
 

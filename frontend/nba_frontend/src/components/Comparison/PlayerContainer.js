@@ -2,7 +2,8 @@ import React, { Fragment, useState, useEffect } from 'react'
 import axios from 'axios';
 import PlayerStats from '../PlayerStats/PlayerStats';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
-import { Flex, Box } from 'rebass';
+import { Flex, Box, Button } from 'rebass';
+import { Input } from '@rebass/forms';
 import BarChart from './BarChart';
 
 
@@ -102,12 +103,19 @@ function PlayerContainer() {
         padding: '16px',  
         margin: '16px', 
         border: '1px solid black',
+        align: 'center', 
     }
 
     const style2 = {
         padding: '16px',  
         margin: '16px', 
         border: '1px solid black',
+    }
+
+    const style3 = {
+        margin:"0 auto",
+        background:"red",
+        align: 'center', 
     }
 
     return (

@@ -44,9 +44,6 @@ class Account(ORM):
                 return None
             return account    
 
-    def set_password(self, password):
-        self.password_hash = hash_password(password)
-
     def draft_player(self, name):
         with sqlite3.connect(DATABASE) as conn:
             cur = conn.cursor()
@@ -61,11 +58,5 @@ class Account(ORM):
             team = cur.fetchall()
         return team
 
-    
-# if __name__ == "__main__":
-    # justin = Account(pk=1, username="test_jus", password_hash="pwd")
-    # steph = Player(pk=124, name="Stephen Curry", age=30, pos="PG")
-    # justin.draft_player("Stephen Curry")
-    # print(justin.get_team())
 
     

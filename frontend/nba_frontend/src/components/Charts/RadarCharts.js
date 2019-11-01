@@ -128,6 +128,3 @@ function RadarChart(props) {
     }
 
     export default RadarChart;
-
-
-    

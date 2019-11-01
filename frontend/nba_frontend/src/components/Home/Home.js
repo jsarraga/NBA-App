@@ -1,24 +1,19 @@
 import React from 'react';
 import { ThemeProvider } from 'emotion-theming'
-import theme from '@rebass/preset'
+import emotion from '@rebass/preset';
 import { Flex, Box } from 'rebass';
 import News from '../News/News';
-import Watchlist from '../Watchlist/Watchlist';
-import PlayerUpdate from '../PlayerUpdate/PlayerUpdate'
 import './Home.css'
 
 function Home() {
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={emotion}>
             <Flex>
-                <Box p={4} width={2/3} color='black' bg='tansparent'>
+                <Box p={4} width={2/3} color='black' >
                     <div className="feed" >
                         <p>News Feed</p>
                         <News />
-                        <Watchlist />
-                        <p>multiple player update components in right column</p>
-                        <PlayerUpdate />
                     </div>
                 </Box>
             </Flex>

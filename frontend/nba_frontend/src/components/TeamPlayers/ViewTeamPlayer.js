@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import RadarCharts from '../Charts/RadarCharts'
+import RadarCharts from '../Charts/RadarCharts';
+import PlayerStats from '../PlayerStats/PlayerStats';
 import { Flex, Box, Text } from 'rebass';
 
 const ViewTeamPlayer = (props) => {
@@ -42,10 +43,11 @@ const ViewTeamPlayer = (props) => {
 
 
     return (
-        <Flex px={2} mx={-2}>
+        <Flex px={200} mx={-2} >
             <Box px={2} width={1/2} style={style}>
-                <Text fontSize={[ 1, 1, 12 ]} fontWeight='medium'>
-                    <p>Name:{props.name} Position:{props.pos}</p>
+                <Text fontSize={[ 1, 1, 20 ]} fontWeight='medium'>
+                    <p>Name: {props.name}</p> 
+                    <p>Position: {props.pos}</p>
                 </Text>
             </Box>
             <Box px={2} width={1/2} style={style}>
