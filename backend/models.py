@@ -32,8 +32,8 @@ def get_by_current_team(team):
 def get_by_stat(stat):
     with sqlite3.connect(DATABASE) as conn:
         cur = conn.cursor()
-        SQL = """ SELECT * FROM player_seasons WHERE 
-                sea='18-19' ORDER BY {} DESC""".format(stat) 
+        SQL = """SELECT * FROM players JOIN player_seasons 
+                ON players.pk = player_seasons.pk ORDER BY {} DESC""".format(stat) 
         cur.execute(SQL)
         players = cur.fetchall()
         return players
