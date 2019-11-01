@@ -30,76 +30,12 @@ function RadarChart(props) {
             hover: {
               size: 10
             },
-            yaxis: {
+          },
+          yaxis: {
               show: false,
               showAlways: false,
-              seriesName: undefined,
-              opposite: false,
-              reversed: false,
-              logarithmic: false,
-              tickAmount: 6,
-              min: 6,
-              max: 6,
-              forceNiceScale: false,
-              floating: false,
-              decimalsInFloat: undefined,
-              labels: {
-                  show: true,
-                  align: 'right',
-                  minWidth: 0,
-                  maxWidth: 160,
-                  style: {
-                      color: undefined,
-                      fontSize: '12px',
-                      fontFamily: 'Helvetica, Arial, sans-serif',
-                      cssClass: 'apexcharts-yaxis-label',
-                  },
-                  offsetX: 0,
-                  offsetY: 0,
-                  rotate: 0,
-              },
-              axisBorder: {
-                  show: true,
-                  color: '#78909C',
-                  offsetX: 0,
-                  offsetY: 0
-              },
-              axisTicks: {
-                  show: true,
-                  borderType: 'solid',
-                  color: '#78909C',
-                  width: 6,
-                  offsetX: 0,
-                  offsetY: 0
-              },
-              title: {
-                  text: 'Big thangs',
-                  rotate: -90,
-                  offsetX: 0,
-                  offsetY: 0,
-                  style: {
-                      color: undefined,
-                      fontSize: '30px',
-                      fontFamily: 'Helvetica, Arial, sans-serif',
-                      cssClass: 'apexcharts-yaxis-title',
-                  },
-              },
-              crosshairs: {
-                  show: true,
-                  position: 'back',
-                  stroke: {
-                      color: '#b6b6b6',
-                      width: 1,
-                      dashArray: 0,
-                  },
-              },
-              tooltip: {
-                  enabled: true,
-                  offsetX: 0,
-              },
-              
           }
-          }
+          
         }
     
         // League Leaders:

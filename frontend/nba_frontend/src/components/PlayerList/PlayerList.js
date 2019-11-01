@@ -11,18 +11,18 @@ const PlayerList = (props) => {
 
     const style = {
         display: 'inline-block', 
-        padding: '16px', 
-        margin: '8px', 
+        padding: '20px', 
+        margin: '5px', 
         border: '1px solid black',
         backgroundcolor: 'white'
     }
     
     return ( 
         <Flex >
-            <Box p={1/2} width={2/4} color='black' bg='transparent'>
+            <Box p={1.5} width={1/2} color='black' bg='transparent'>
                 <div className='div1' style={style} onClick={(e) => setIsOpen(true)}>
                     <span>Name: {props.data.name}, Age: {props.data.age}, Position: {props.data.pos}, Team: {props.data.tm}</span> 
-                    <Text fontSize={[ 1, 1, 10 ]} fontWeight='medium' padding='10px'>
+                    <Text fontSize={[ 1, 1, 2 ]} fontWeight='medium' padding='10px'>
                         <table>
                             <thead>
                                 <tr>
@@ -59,12 +59,12 @@ const PlayerList = (props) => {
                         </table> 
                     </Text>
                 </div> 
+                </Box>
                 <PopupContainer isOpen={isOpen} data={props.data} onClose={(e) => setIsOpen(false)}>
                     <PlayerInfo data={props.data} team={props.data.tm}/>
                     <PlayerStats data={props.data}/>
                     <RadarChart data={props.data}/>
                 </PopupContainer>
-            </Box>
         </Flex>
     )
 }

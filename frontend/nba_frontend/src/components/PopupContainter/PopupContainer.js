@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 let popupStyles = {
-    width: '450px',
+    width: '600px',
     maxWidth: '75%',
     height: '500px',
     margin: '0 auto',

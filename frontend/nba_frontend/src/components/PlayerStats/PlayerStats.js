@@ -5,7 +5,7 @@ import './PlayerStats.css';
 const PlayerStats = (props) => {
 
     return(
-        <Text fontSize={[ 1, 1, 10 ]} fontWeight='medium'>
+        <Text fontSize={[ 1, 1, 2 ]} fontWeight='medium'>
             <table align="center">
                 <thead>
                     <tr>
