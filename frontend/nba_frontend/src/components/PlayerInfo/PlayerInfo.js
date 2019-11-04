@@ -1,15 +1,24 @@
 import React from 'react';
-import { Text } from 'rebass';
+import { Text, Flex, Box } from 'rebass';
 import './PlayerInfo.css';
 
 const PlayerInfo = (props) => {
 
     return(
-        <Text fontSize={[ 1, 1, 2 ]} fontWeight='600'>
-            <div >
-                <p>Name:{props.data.name}, Age:{props.data.age}, Position:{props.data.pos}, Team: {props.team}</p>
-            </div> 
-        </Text>
+        <div classname="info">
+            <Text fontSize={[ 1, 1, 2 ]} fontWeight='600px' >
+                <Flex px={2} mx={-2}>
+                    <Box px={2} width={1/2} >
+                        <p>Name: {props.data.name}</p>
+                        <p>Age: {props.data.age}</p>
+                    </Box>
+                    <Box px={2} width={1/2} >
+                        <p>Position: {props.data.pos}</p>
+                        <p> Team: {props.team}</p>
+                    </Box>
+                </Flex>
+            </Text>
+        </div>
     )
 }
 

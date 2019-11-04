@@ -8,7 +8,7 @@ function BarChart(props) {
         chart: {
         stacked: true
         },
-        colors: ['#008FFB', '#FF4560'],
+        colors: ['#61892f', '#86c232'],
         plotOptions: {
         bar: {
             horizontal: true,

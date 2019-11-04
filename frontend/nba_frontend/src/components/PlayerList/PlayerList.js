@@ -18,11 +18,21 @@ const PlayerList = (props) => {
     }
     
     return ( 
-        <Flex >
-            <Box p={1.5} width={1/2} color='black' bg='transparent'>
+        <Flex px={2} mx={4}>
+            <Box p={1.5} width={1/2} color='black'>
                 <div className='div1' style={style} onClick={(e) => setIsOpen(true)}>
-                    <span>Name: {props.data.name}, Age: {props.data.age}, Position: {props.data.pos}, Team: {props.data.tm}</span> 
+                    <Flex px={2} mx={-2}>
+                        <Box px={2} width={1/2} >
+                            <p>Name: {props.data.name}</p>
+                            <p>Age: {props.data.age}</p>
+                        </Box>
+                        <Box px={2} width={1/2} >
+                            <p>Position: {props.data.pos}</p>
+                            <p> Team: {props.data.tm}</p>
+                        </Box>
+                    </Flex>
                     <Text fontSize={[ 1, 1, 2 ]} fontWeight='medium' padding='10px'>
+                        <Box>
                         <table>
                             <thead>
                                 <tr>
@@ -57,6 +67,7 @@ const PlayerList = (props) => {
                                 </tr>
                             </tbody>
                         </table> 
+                        </Box>
                     </Text>
                 </div> 
                 </Box>

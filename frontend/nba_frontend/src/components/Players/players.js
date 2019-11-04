@@ -54,8 +54,8 @@ const Players = () => {
     )
 
     return(
-        <Flex>
-            <Box width={1/2.4} align='center' >
+        <Flex px={30} mx={2}>
+            <Box p={1} width={1/2} alignItems= 'center'>
                     <br />
                     <br />
                     <button className="button" onClick={e => {setStat("pts")}}>Pts</button>
@@ -72,7 +72,6 @@ const Players = () => {
                     <button className="button" onClick={e => {setStat("mp")}}>Mins</button>
                     {showPlayers} 
             </Box>
-            
         </Flex>
     )
 }

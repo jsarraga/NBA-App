@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-image: url('/components/Header/img/background.jpg')
+  background-image: url('/components/Header/img/background.jpg');
+  background-color: #222629;
 }
 
 .App-logo {
@@ -16,6 +17,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font: 'Abel';
 }
 
 .App-link {

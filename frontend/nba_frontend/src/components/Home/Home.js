@@ -11,10 +11,7 @@ function Home() {
         <ThemeProvider theme={emotion}>
             <Flex>
                 <Box p={4} width={2/3} color='black' >
-                    <div className="feed" >
-                        <p>News Feed</p>
                         <News />
-                    </div>
                 </Box>
             </Flex>
         </ThemeProvider>

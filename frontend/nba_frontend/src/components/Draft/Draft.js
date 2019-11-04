@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from '../Login/Login';
+import { Flex } from 'rebass';
 import Players from '../Players/Players';
 import './Draft.css';
 
@@ -7,8 +7,6 @@ const draft = () => {
     return (
         <div>
             <Players />
-            <span>Team list on the right</span>
-            {/* <Login /> */}
         </div>
     )
 }

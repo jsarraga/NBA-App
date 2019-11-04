@@ -1,16 +1,20 @@
 import React from 'react';
 import { ThemeProvider } from 'emotion-theming';
-import emotion from '@rebass/preset';
+import theme from './theme'
+import { Box } from 'rebass'
 import Header from './components/Header/Header';
 import './App.css';
 
 
 function App() {
+
   return (
-    <ThemeProvider theme={emotion}>
-      <div className="App" background-image='/components/Header/img/background.jpg'>
-          <Header />
-      </div>
+    <ThemeProvider theme={theme}>
+      <Box>
+        <div className="App"> 
+            <Header />
+        </div>
+      </Box>
     </ThemeProvider>
   );
 }

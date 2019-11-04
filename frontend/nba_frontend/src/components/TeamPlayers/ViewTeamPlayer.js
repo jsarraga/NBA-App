@@ -38,7 +38,7 @@ const ViewTeamPlayer = (props) => {
         padding: '16px', 
         margin: '8px', 
         border: '1px solid black',
-        backgroundcolor: 'white'
+        background: '#eee'
     }
 
 

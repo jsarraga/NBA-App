@@ -27,7 +27,8 @@ class RadarChart extends React.Component {
             width: 0
           },
           fill: {
-            opacity: 0.4
+            opacity: 0.8,
+            colors: ['#86C232']
           },
           markers: {
             size: 2,

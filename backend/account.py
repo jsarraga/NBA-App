@@ -58,5 +58,11 @@ class Account(ORM):
             team = cur.fetchall()
         return team
 
-
+    def get_watchlist(self):
+        with sqlite3.connect(DATABASE) as conn:
+            cur = conn.cursor()
+            SQL = where_clause.format("watchlist WHERE user_pk=?")
+            cur.execute(SQL, (self.pk,))
+            watchlist = cur.fetchall()
+        return watchlist
     

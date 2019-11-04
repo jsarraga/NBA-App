@@ -4,6 +4,7 @@ from account import Account
 from pprint import pprint
 from util import hash_password
 import models
+import csv
 
 DATABASE = "../data/nba.db"
 where_clause = "SELECT * FROM {}"
@@ -21,3 +22,18 @@ def get_by_stat(stat):
         return players[1]
 
 print(get_by_stat('ast'))
+
+
+def img_loader(filename):
+        with open(filename, 'r') as f:
+                reader = csv.DictReader(f)
+                data = []
+                for row in reader:
+                #     pic_dict = {}
+                #     name = row.split("\\")
+                        print(row)
+            
+
+
+
+img_loader("../data/raw_data/2018-2019.csv")

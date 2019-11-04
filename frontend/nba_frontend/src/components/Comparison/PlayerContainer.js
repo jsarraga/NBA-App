@@ -104,22 +104,18 @@ function PlayerContainer() {
         margin: '16px', 
         border: '1px solid black',
         align: 'center', 
+        background: '#eee'
     }
 
     const style2 = {
         padding: '16px',  
         margin: '16px', 
         border: '1px solid black',
-    }
-
-    const style3 = {
-        margin:"0 auto",
-        background:"red",
-        align: 'center', 
+        background: '#eee'
     }
 
     return (
-        <Fragment >
+        <div >
             <Flex px={2} mx={-2}>
                     <Box px={2} width={1/2} style={style}>
                         <input type ="text" id="firstname"  placeholder="First Name" onChange= {(e) => {setFirstname(e.target.value)}} />
@@ -143,7 +139,7 @@ function PlayerContainer() {
             <Box style={style2}>
                 <BarChart data={playerStatsData} otherData={playerStatsData2} name1={playerInfoData.name} name2={playerInfoData2.name} />
             </Box>
-        </Fragment>
+        </div>
         
     )
 }
