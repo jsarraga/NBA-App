@@ -37,5 +37,3 @@ def get_by_stat(stat):
         cur.execute(SQL)
         players = cur.fetchall()
         return players
-
-

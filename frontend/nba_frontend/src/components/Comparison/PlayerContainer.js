@@ -115,32 +115,31 @@ function PlayerContainer() {
     }
 
     return (
-        <div >
-            <Flex px={2} mx={-2}>
-                    <Box px={2} width={1/2} style={style}>
-                        <input type ="text" id="firstname"  placeholder="First Name" onChange= {(e) => {setFirstname(e.target.value)}} />
-                        <input type="text" id="laststname" placeholder="Last Name" onChange= {(e) => {setLastname(e.target.value)}} />
-                        <button type="submit" onClick={(e) => {setInfoUrl(`http://localhost:5000/${firstname}/${lastname}/info`); 
-                                                                setStatsUrl(`http://localhost:5000/${firstname}/${lastname}/recent_stats`)}}>Submit</button>
-                        <PlayerInfo data={playerInfoData} team={playerStatsData.tm}/>
-                        <PlayerStats data={playerStatsData} />
-                    </Box>
+        <div>
+            <Flex px={20} mx={-2}>
+                <Box px={2} width={1/2} style={style}>
+                    <input type ="text" id="firstname"  placeholder="First Name" onChange= {(e) => {setFirstname(e.target.value)}} />
+                    <input type="text" id="laststname" placeholder="Last Name" onChange= {(e) => {setLastname(e.target.value)}} />
+                    <button type="submit" onClick={(e) => {setInfoUrl(`http://localhost:5000/${firstname}/${lastname}/info`); 
+                                                            setStatsUrl(`http://localhost:5000/${firstname}/${lastname}/recent_stats`)}}>Submit</button>
+                    <PlayerInfo data={playerInfoData} team={playerStatsData.tm}/>
+                    <PlayerStats data={playerStatsData} />
+                </Box>
 
-                    <Box px={2} width={1/2} style={style} >
-                        <input type ="text" id="firstname2"  placeholder="First Name" onChange= {(e) => {setFirstname2(e.target.value)}} />
-                        <input type="text" id="laststname2" placeholder="Last Name" onChange= {(e) => {setLastname2(e.target.value)}} />
-                        <button type="submit" onClick={(e) => {setInfoUrl2(`http://localhost:5000/${firstname2}/${lastname2}/info`); 
-                                                                setStatsUrl2(`http://localhost:5000/${firstname2}/${lastname2}/recent_stats`)}}>Submit</button>
-                        <PlayerInfo data={playerInfoData2} team={playerStatsData2.tm}/>
-                        <PlayerStats data={playerStatsData2} />
-                    </Box> 
+                <Box px={2} width={1/2} style={style} >
+                    <input type ="text" id="firstname2"  placeholder="First Name" onChange= {(e) => {setFirstname2(e.target.value)}} />
+                    <input type="text" id="laststname2" placeholder="Last Name" onChange= {(e) => {setLastname2(e.target.value)}} />
+                    <button type="submit" onClick={(e) => {setInfoUrl2(`http://localhost:5000/${firstname2}/${lastname2}/info`); 
+                                                            setStatsUrl2(`http://localhost:5000/${firstname2}/${lastname2}/recent_stats`)}}>Submit</button>
+                    <PlayerInfo data={playerInfoData2} team={playerStatsData2.tm}/>
+                    <PlayerStats data={playerStatsData2} />
+                </Box> 
             </Flex>
         
-            <Box style={style2}>
+            <Box px={20} style={style2}>
                 <BarChart data={playerStatsData} otherData={playerStatsData2} name1={playerInfoData.name} name2={playerInfoData2.name} />
             </Box>
         </div>
-        
     )
 }
 

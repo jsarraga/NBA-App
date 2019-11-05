@@ -149,6 +149,47 @@ def get_players_by_stat(stat):
         data = {"name": "PLAYER NOT FOUND" }
     return jsonify(player_list)
 
+@app.route("/<api_key>/watchlist", methods = ["GET"])
+def get_watchlist(api_key):
+    account = Account.api_authenticate(api_key)
+    team = account.watchlist()
+    team_list = []
+    for player in team:
+        data = {}
+        data["name"] = player[1]
+        data["age"] = player[2]
+        data["pos"] = player[3]
+        data["sea"] = player[9]
+        data["tm"] = player[11]
+        data["pts"] = player[12]
+        data["tpm"] = player[13]
+        data["reb"] = player[14]
+        data["ast"] = player[15]
+        data["stl"] = player[16]
+        data["blk"] = player[17]
+        data["fgp"] = player[18]
+        data["ftp"] = player[19]
+        data["tov"] = player[20]
+        data["g"] = player[21]
+        data["gs"] = player[22]
+        data["mp"] = player[23]
+        team_list.append(data)
+    return jsonify(team_list)
+
+@app.route("/<api_key>/watchlist/add/<firstname>/<lastname>", methods = ["GET"])
+def add_to_watchlist(api_key, firstname, lastname):
+    account = Account.api_authenticate(api_key)
+    name = firstname + " " + lastname
+    account.add_to_watchlist(name)
+    return jsonify({"added": name})
+
+@app.route("/<api_key>/watchlist/remove/<firstname>/<lastname>", methods = ["GET"])
+def remove_from_watchlist(api_key, firstname, lastname):
+    account = Account.api_authenticate(api_key)
+    name = firstname + " " + lastname
+    account.remove_from_watchlist(name)
+    return jsonify({"removed": name})
+
 
 if __name__ == "__main__":
     app.run(debug=True)

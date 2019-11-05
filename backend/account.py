@@ -35,14 +35,8 @@ class Account(ORM):
 
     @classmethod
     def login(cls, username, password):
-        with sqlite3.connect(DATABASE) as conn:
-            cur = conn.cursor()
-            SQL = where_clause.format("accounts WHERE username=? AND password_hash=?")
-            cur.execute(SQL, (username, hash_password(password)))
-            account = cur.fetchone()
-            if not account:
-                return None
-            return account    
+        return Account.one_from_where_clause("WHERE username=? AND password_hash=?", 
+                                                (username, hash_password(password)))
 
     def draft_player(self, name):
         with sqlite3.connect(DATABASE) as conn:
@@ -61,8 +55,27 @@ class Account(ORM):
     def get_watchlist(self):
         with sqlite3.connect(DATABASE) as conn:
             cur = conn.cursor()
-            SQL = where_clause.format("watchlist WHERE user_pk=?")
-            cur.execute(SQL, (self.pk,))
+            SQL = where_clause.format("""players JOIN watchlist JOIN player_seasons 
+            ON watchlist.player_pk=players.pk AND 
+            watchlist.player_pk=player_seasons.player_pk WHERE sea='18-19';""")
+            cur.execute(SQL)
             watchlist = cur.fetchall()
         return watchlist
+        # make sure this returns player names on watchlist
     
+    def add_to_watchlist(self, name):
+        player = Player.get_player(name)
+        with sqlite3.connect(DATABASE)as conn:
+            cur = conn.cursor()
+            SQL = """ INSERT INTO watchlist (user_pk, player_pk) VALUES(?,?) """
+            cur.execute(SQL, (self.pk, player.pk))
+        #     watchlist = self.get_watchlist
+        # return watchlist
+
+    def remove_from_watchlist(self, name):
+        player = Player.get_player(name)
+        with sqlite3.connect(DATABASE)as conn:
+            cur = conn.cursor()
+            SQL = " DELETE FROM watchlist WHERE player_pk=? "
+            cur.execute(SQL, (player.pk,))
+ 

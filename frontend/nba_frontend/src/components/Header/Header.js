@@ -14,9 +14,9 @@ import './Header.css';
 function header() {
 
     return(
-        <Fragment className="header"> 
+        <Fragment px={5} className="header"> 
             <img src={Logo} alt="logo" width="70%" padding="30px"/> <br/>
-            <div px={1} color='white' background='#6B6E70' alignItems= 'flex-end'>
+            <div px={3} color='white' background='#6B6E70' alignItems= 'flex-end'>
                 <topnav className="nav" > 
                     <Link variant='nav' type="nav" className="link" to="/Home">Home</Link>
                     <Link type="nav" className="link" to="/Players">Players</Link>

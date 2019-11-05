@@ -3,7 +3,8 @@ from orm import ORM
 
 DATABASE = "../data/nba.db"
 
-class Player:
+class Player(ORM):
+    dbpath= DATABASE
     tablename = 'players'
     fields = ['name', 'age', 'pos', 'user_pk']
 
@@ -25,7 +26,10 @@ class Player:
             if player is None:
                 return None
             return cls(**player)
-
+    
+    def get_pk(self):
+        player = Player.one_from_where_clause("WHERE name=?", (self.name,))
+        return self.pk
 
     def get_all_seasons_stats(self):
         with sqlite3.connect(DATABASE) as conn:
