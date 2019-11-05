@@ -54,23 +54,23 @@ const Players = () => {
     )
 
     return(
-        <Flex px={30} mx={2}>
-            <Box p={1} width={1/2} alignItems= 'center'>
-                    <br />
-                    <br />
-                    <button className="button" onClick={e => {setStat("pts")}}>Pts</button>
-                    <button className="button" onClick={e => {setStat("tpm")}}>3PM</button>
-                    <button className="button" onClick={e => {setStat("reb")}}>Reb</button>
-                    <button className="button" onClick={e => {setStat("ast")}}>Ast</button>
-                    <button className="button" onClick={e => {setStat("stl")}}>Stl</button>
-                    <button className="button" onClick={e => {setStat("blk")}}>Blk</button>
-                    <button className="button" onClick={e => {setStat("fgp")}}>Fg%</button>
-                    <button className="button" onClick={e => {setStat("ftp")}}>Ft%</button>
-                    <button className="button" onClick={e => {setStat("tov")}}>TO</button>
-                    <button className="button" onClick={e => {setStat("g")}}>Gm</button>
-                    <button className="button" onClick={e => {setStat("gs")}}>Gs</button>
-                    <button className="button" onClick={e => {setStat("mp")}}>Mins</button>
-                    {showPlayers} 
+        <Flex >
+            <Box >
+                <br />
+                <br />
+                <button className="button" onClick={e => {setStat("pts")}}>Pts</button>
+                <button className="button" onClick={e => {setStat("tpm")}}>3PM</button>
+                <button className="button" onClick={e => {setStat("reb")}}>Reb</button>
+                <button className="button" onClick={e => {setStat("ast")}}>Ast</button>
+                <button className="button" onClick={e => {setStat("stl")}}>Stl</button>
+                <button className="button" onClick={e => {setStat("blk")}}>Blk</button>
+                <button className="button" onClick={e => {setStat("fgp")}}>Fg%</button>
+                <button className="button" onClick={e => {setStat("ftp")}}>Ft%</button>
+                <button className="button" onClick={e => {setStat("tov")}}>TO</button>
+                <button className="button" onClick={e => {setStat("g")}}>Gm</button>
+                <button className="button" onClick={e => {setStat("gs")}}>Gs</button>
+                <button className="button" onClick={e => {setStat("mp")}}>Mins</button>
+                {showPlayers} 
             </Box>
         </Flex>
     )

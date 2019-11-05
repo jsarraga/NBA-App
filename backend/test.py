@@ -13,9 +13,16 @@ where_clause = "SELECT * FROM {}"
 username = "justin"
 password = "pwd"
 
+def get_api_key():
+    # data = request.get_json()
+    account = Account.login(username=username, password=password)
+    return({"api_key": account.api_key})
+
 # player = Player.get_player("Kevin Durant")
-account = Account.login(username, password)
+# account = Account.login(username, password)
 # account.add_to_watchlist('Kevin Durant')
 # account.remove_from_watchlist('Kevin Durant')
 
-print(account.get_watchlist())
+# print(account.get_watchlist())
+
+print(get_api_key())

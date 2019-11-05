@@ -33,7 +33,7 @@ def create_account():
 def get_api_key():
     data = request.get_json()
     account = Account.login(username=data['username'], password=data['password'])
-    return jsonify({"api_key": account[3]})
+    return jsonify({"api_key": account.api_key})
 
 @app.route("/all_players", methods = ["GET"])
 def get_players():
@@ -152,7 +152,7 @@ def get_players_by_stat(stat):
 @app.route("/<api_key>/watchlist", methods = ["GET"])
 def get_watchlist(api_key):
     account = Account.api_authenticate(api_key)
-    team = account.watchlist()
+    team = account.get_watchlist()
     team_list = []
     for player in team:
         data = {}
@@ -189,7 +189,6 @@ def remove_from_watchlist(api_key, firstname, lastname):
     name = firstname + " " + lastname
     account.remove_from_watchlist(name)
     return jsonify({"removed": name})
-
 
 if __name__ == "__main__":
     app.run(debug=True)

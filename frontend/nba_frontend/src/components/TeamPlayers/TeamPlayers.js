@@ -48,7 +48,6 @@ const TeamPlayer = (props) => {
     return (
       <div >
           {isLoading ? (<div>Loading...</div>) : (<div>{myteam}</div>)}
-          {/* <RadarChart data={playerData} /> */}
       </div>
     )
 }
