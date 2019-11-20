@@ -20,7 +20,6 @@ def create_account():
     api_key = util.random_api_key()
     data = request.get_json()
     account = Account()
-    account.balance = 0
     account.username = data['username']
     password = data['password']
     hashed_pass = util.hash_password(password)

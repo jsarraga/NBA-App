@@ -8,6 +8,7 @@ import './Draft.css';
 const Draft = () => {
 
     const token = sessionStorage.getItem('token');
+    // const [value, setValue] token to make turnary operator for drafting team and add/remove button
     const [watchlistData, setWatchlistData] = useState([{name: "none", pos: "none"}]);
     const [url, setUrl] = useState(`http://localhost:5000/${token}/watchlist`)
     const [isLoading, setIsLoading] = useState(false);
@@ -58,6 +59,7 @@ const style = {
             </div>
             <div>
                 <div style={style}>Your Team:</div>
+                {token && <p>Authentication Error!</p>}
                 {watchlist}
             </div>
         </Flex>
