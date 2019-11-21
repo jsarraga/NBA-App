@@ -8,6 +8,7 @@ import Team from '../Team/Team';
 import Draft from '../Draft/Draft';
 import Comparison from '../Comparison/Comparison';
 import Logo from './img/wings.png';
+import Logo1 from './img/fbfinesse.png';
 import './Header.css';
 
 

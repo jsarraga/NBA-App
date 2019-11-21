@@ -1,6 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import axios from 'axios';
 import TeamPlayers from '../TeamPlayers/TeamPlayers';
+import './Login.css';
 
 
 function Login() {
@@ -94,12 +95,14 @@ function Login() {
                 {isAuthError && <p>Authenticathion Error</p>}
 
                 <br/>
-                <h3>Please Log In</h3>
+                <h3>Please Log In</h3>  
                 <form>
-                    <input type="text" onChange={e=> {setInputUser(e.target.value)}} placeholder="Username" />
-                    <input type="password" onChange={e => {setInputPassword(e.target.value)}} placeholder="Password" />
-                    <button onClick={e => {getToken(); e.preventDefault();}}>Log In</button>
-                    <button onClick={e => {createAccount(); e.preventDefault();}}>Create Account</button>
+                    <div>
+                        <input className="input" type="text" onChange={e=> {setInputUser(e.target.value)}} placeholder="Username" />
+                        <input className="input" type="password" onChange={e => {setInputPassword(e.target.value)}} placeholder="Password" />
+                        <button onClick={e => {getToken(); e.preventDefault();}}>Log In</button>
+                        <button onClick={e => {createAccount(); e.preventDefault();}}>Create Account</button>
+                    </div>
                 </form>
                 {isError && <h3>Processing Error</h3>}
                 <button onClick={e => {setValue(null);}}>Log Out</button>

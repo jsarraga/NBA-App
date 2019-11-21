@@ -34,7 +34,7 @@ function BarChart(props) {
         min: -30,
         max: 30,
         title: {
-            text: 'Categories',
+            // text: 'Categories',
         },
         },
         tooltip: {

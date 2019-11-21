@@ -3,6 +3,7 @@
   background-image: url('/components/Header/img/background.jpg');
   background-color: #222629;
   min-height: 1200px;
+  padding: 40px;
 }
 
 .App-logo {

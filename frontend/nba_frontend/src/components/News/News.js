@@ -46,7 +46,7 @@ const News = () => {
         padding: '16px', 
         margin: '16px', 
         border: '1px solid black',
-        backgroundcolor: 'white'
+        backgroundcolor: 'white',
     }
 
     return (

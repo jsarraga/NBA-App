@@ -9,8 +9,9 @@ function Home() {
 
     return (
         <ThemeProvider theme={emotion}>
+            {/* <News /> */}
             <Flex>
-                <Box p={4} width={2/3} color='black' >
+                <Box p={2} width={2/3} color='black' >
                         <News />
                 </Box>
             </Flex>

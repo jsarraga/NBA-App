@@ -45,9 +45,10 @@ const ViewTeamPlayer = (props) => {
     return (
         <Flex px={200} mx={-2} >
             <Box px={2} width={1/2} style={style}>
-                <Text fontSize={[ 1, 1, 20 ]} fontWeight='medium'>
-                    <p>Name: {props.name}</p> 
-                    <p>Position: {props.pos}</p>
+                <Text fontSize={[ 1, 1, 30 ]} fontWeight='medium'>
+                    <p><strong>Name:</strong> {props.name}</p> 
+                    <br></br>
+                    <p><strong>Position: </strong>{props.pos}</p>
                 </Text>
             </Box>
             <Box px={2} width={1/2} style={style}>
