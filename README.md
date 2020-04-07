@@ -11,6 +11,8 @@ FB Finesse is a web application that allows users draft and manager their fantas
 ![News Feed](images/newsfeed.png)
 
 <h4> Data Visualization </h4>
+
+ - Used ApexCharts.js to visualize data received from the Flask API
  
  - Radar charts easily display a players statistics against all other players in the league
  
